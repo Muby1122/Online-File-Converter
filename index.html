@@ -1,82 +1,19 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { UploadCloud, FileText, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FileConverterPro | Convert Any File</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-white text-gray-800 font-sans">
 
-export default function HomePage() {
-  return (
-    <main className="min-h-screen bg-gradient-to-r from-blue-100 to-purple-100 p-6 flex flex-col items-center justify-center">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-6xl font-bold text-gray-800 mb-4 text-center"
-      >
-        Online File Converter
-      </motion.h1>
-      <p className="text-lg md:text-xl text-gray-600 mb-10 text-center max-w-xl">
-        Convert your documents, images, videos, and audio files to various formats effortlessly and securely.
-      </p>
+  <!-- Header -->
+  <header class="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+    <h1 class="text-2xl font-bold text-blue-600">FileConverterPro</h1>
+    <nav class="space-x-4 text-sm hidden md:flex">
+      <a href="#" class="hover:text-blue-600 transition">Home</a>
+      <a href="#features" class="hover:text-blue-600 transition">Features</a>
+      <a href="#how" class="hover:text-blue-600 transition">How It Works</a>
+      <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
 
-      <Card className="w-full max-w-2xl shadow-xl">
-        <CardContent className="p-6 flex flex-col gap-4">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <Input type="file" className="flex-1" />
-            <Button variant="default" className="gap-2">
-              <UploadCloud className="w-5 h-5" /> Upload
-            </Button>
-          </div>
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <select className="flex-1 border border-gray-300 rounded-lg p-2">
-              <option value="">Select Output Format</option>
-              <option value="pdf">PDF</option>
-              <option value="docx">DOCX</option>
-              <option value="jpg">JPG</option>
-              <option value="mp3">MP3</option>
-              <option value="mp4">MP4</option>
-            </select>
-            <Button variant="secondary" className="gap-2">
-              Convert <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl">
-        <FeatureCard
-          icon={<FileText className="w-10 h-10 text-blue-500" />}
-          title="Multi-format Support"
-          description="Convert documents, images, audio, and video files to a wide range of formats."
-        />
-        <FeatureCard
-          icon={<UploadCloud className="w-10 h-10 text-purple-500" />}
-          title="Easy Uploads"
-          description="Drag and drop or use our upload tool to select files quickly."
-        />
-        <FeatureCard
-          icon={<ArrowRight className="w-10 h-10 text-green-500" />}
-          title="Fast & Secure"
-          description="Your files are processed instantly and securely. We respect your privacy."
-        />
-      </div>
-    </main>
-  );
-}
-
-function FeatureCard({ icon, title, description }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white rounded-2xl shadow-md p-6 text-center hover:shadow-lg transition"
-    >
-      <div className="mb-4 flex justify-center">{icon}</div>
-      <h3 className="text-xl font-semibold mb-2 text-gray-800">{title}</h3>
-      <p className="text-gray-600 text-sm">{description}</p>
-    </motion.div>
-  );
-}
